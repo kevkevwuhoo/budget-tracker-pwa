@@ -1,7 +1,12 @@
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 const config = {
-  entry: path.join(__dirname + "/public/index.js"),
+  entry: {
+    main: [
+      path.join(__dirname + "/public/db.js"),
+      path.join(__dirname + "/public/index.js"),
+    ],
+  },
   output: {
     path: path.join(__dirname + "/public/dist"),
     filename: "bundle.js",
