@@ -1,7 +1,7 @@
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 const config = {
-  entry: path.join("./public/assets/js/index.js"),
+  entry: path.join(__dirname + "/public/index.js"),
   output: {
     path: path.join(__dirname + "/public/dist"),
     filename: "bundle.js",
@@ -11,8 +11,12 @@ const config = {
     new WebpackPwaManifest({
       name: "Budget Tracker App",
       short_name: "Budget Tracker App",
+      filename: "manifest.webmanifest",
+      description: "My awesome Progressive Web App!",
       background_color: "#ffffff",
-      crossorigin: "null", //can be null, use-credentials or anonymous
+      display: "standalone",
+      start_url: "/",
+      fingerprints: false,
       icons: [
         {
           src: path.resolve("./public/icons/icon-512x512.png"),
